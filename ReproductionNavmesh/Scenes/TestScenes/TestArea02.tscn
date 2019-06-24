@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/TestScripts/TestArea02.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/TestScenes/Chunk01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/TestScenes/ChunkType01Loader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/TestScenes/PlayerPH.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/TestScripts/Somethingsolidtemp.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/TestScenes/ZombieHolder.tscn" type="PackedScene" id=6]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 20, 20 )
+
+[sub_resource type="NavigationMesh" id=4]
+vertices = PoolVector3Array( 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, -10 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 1, 3, 2 ) ]
+
+[node name="TestArea02" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="ChunkTestHolder" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Chunk01" parent="ChunkTestHolder" instance=ExtResource( 2 )]
+
+[node name="Chunk04" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+
+[node name="Chunk05" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40 )
+
+[node name="Chunk06" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40 )
+
+[node name="Chunk07" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
+
+[node name="Chunk08" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
+
+[node name="Chunk09" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
+
+[node name="Chunk10" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40 )
+
+[node name="Chunk11" parent="ChunkTestHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11389, -1.86072 )
+
+[node name="TestHolder" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="StaticBody" type="StaticBody" parent="TestHolder"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35254, 1.00824, 0 )
+collision_layer = 8
+collision_mask = 25
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestHolder/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestHolder/StaticBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody2" type="StaticBody" parent="TestHolder"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35254, 1.00824, 1.97382 )
+collision_layer = 8
+collision_mask = 25
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestHolder/StaticBody2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestHolder/StaticBody2"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody3" type="StaticBody" parent="TestHolder"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35254, 2.97028, 0 )
+collision_layer = 8
+collision_mask = 25
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestHolder/StaticBody3"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestHolder/StaticBody3"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody4" type="StaticBody" parent="TestHolder"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.05273, 1.00824, 0 )
+collision_layer = 8
+collision_mask = 25
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestHolder/StaticBody4"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestHolder/StaticBody4"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody5" type="StaticBody" parent="TestHolder"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.69702, 1.00824, -1.70068 )
+collision_layer = 8
+collision_mask = 25
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestHolder/StaticBody5"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestHolder/StaticBody5"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="NavGen" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.117065, 0 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.117065, 0 )
+navmesh = SubResource( 4 )
+
+[node name="EnemyHolder" type="Spatial" parent="Navigation"]
+
+[node name="ZombieHolder" parent="Navigation/EnemyHolder" instance=ExtResource( 6 )]
+

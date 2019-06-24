@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/TestScripts/CamControl.gd" type="Script" id=1]
+
+[node name="CamHolder" type="Spatial"]
+
+editor/display_folded = true
+visible = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+distance = 4.0
+closest_distance = 0.5
+furthest_distance = 8
+height = 2.0
+aiming_distance = 0.7
+non_aiming_distance = 4.0
+
+[node name="CamRotY" type="Spatial" parent="." index="0"]
+
+visible = false
+
+[node name="CamRotX" type="Spatial" parent="CamRotY" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0 )
+visible = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2" type="Camera" parent="CamRotY/CamRotX" index="0"]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0, 0, -4 )
+visible = false
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast" type="RayCast" parent="CamRotY/CamRotX" index="1"]
+
+visible = false
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 0, 0, 0 )
+collision_mask = 25
+
+
