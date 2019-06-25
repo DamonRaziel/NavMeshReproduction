@@ -67,9 +67,19 @@ transform = Transform( 0.65, 0, 0, 0, 0.7, 0, 0, 0, 0.65, 0, 1, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Map_Area"]
 shape = SubResource( 8 )
 
+[node name="Scan_Timer" type="Timer" parent="."]
+wait_time = 0.03
+one_shot = true
+
+[node name="Scan_Timer2" type="Timer" parent="."]
+wait_time = 0.03
+one_shot = true
+
 [connection signal="body_entered" from="Detect_Area" to="." method="_on_Detect_Area_body_entered"]
 [connection signal="body_exited" from="Detect_Area" to="." method="_on_Detect_Area_body_exited"]
 [connection signal="body_entered" from="Attack_Area" to="." method="_on_Attack_Area_body_entered"]
 [connection signal="body_exited" from="Attack_Area" to="." method="_on_Attack_Area_body_exited"]
 [connection signal="body_entered" from="Map_Area" to="." method="_on_Map_Area_body_entered"]
 [connection signal="body_exited" from="Map_Area" to="." method="_on_Map_Area_body_exited"]
+[connection signal="timeout" from="Scan_Timer" to="." method="_on_Scan_Timer_timeout"]
+[connection signal="timeout" from="Scan_Timer2" to="." method="_on_Scan_Timer2_timeout"]
